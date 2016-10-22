@@ -34,6 +34,13 @@ flash[:notice] = "#{@movie.title} was successfully updated."
  redirect_to movie_path(@movie)
  end
 
+def destroy
+ @movie = Movie.find(params[:id])
+ @movie.destroy
+ flash[:notice] = "Movie ’#{@movie.title}’ deleted."
+ redirect_to movies_path
+end
+
 
 end
 
